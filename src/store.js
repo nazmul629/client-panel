@@ -25,7 +25,9 @@ const rrfConfig = {
   firebase.initializeApp(firebaseConfig);
 
   // init firestore
-  // const firestor = firebase.firestore()  
+  const firestor = firebase.firestore()  
+  const settings = {timestampsInSnapshorts:true};
+  firestor.settings(settings)
 
 
 
