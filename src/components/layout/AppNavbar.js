@@ -73,10 +73,13 @@ import { firestoreConnect } from 'react-redux-firebase';
                             </ul>
                             ) :
                             <ul className="navbar-nav ml-auto">
-                                <li className="nav-item">
-                                    <Link to="/login" > Login</Link>
-                                </li>
+                                <li className="nav-item mr-3">
+                                    <Link to="/login" > Login  </Link>
+                                </li>{"  "}
 
+                                <li className="nav-item">
+                                    <Link to="/registration"> Registration</Link>
+                                </li>
                             </ul>
                             
                             }
@@ -89,11 +92,13 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 AppNavbar.propTypes = {
     firebase:PropTypes.object.isRequired,
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+    settings:PropTypes.object.isRequired
 };
 export default compose(
      firestoreConnect(),
      connect((state,props)=>({
-         auth: state.firebase.auth 
+         auth: state.firebase.auth,
+         settings:state.settings
      }))
 )(AppNavbar);

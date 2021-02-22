@@ -1,35 +1,27 @@
-import { actionTypes } from 'react-redux-firebase';
-import {DISABLE_BALANCE_ON_ADD,
-        DISABLE_BALANCE_ON_EDIT,
-        ALLOW_REGISTRATION} 
-        from '../actions/types'
+import {
+  DISABLE_BALANCE_ON_ADD,
+  DISABLE_BALANCE_ON_EDIT,
+  ALLOW_REGISTRATION
+} from '../actions/types';
 
-const initialState={
-  disableBalanceOnAdd : true,
-  disableBalanceOnEdit : false,
-  allowRegistration:false
-}
-
-export default (state = initialState,action)=>{
-  switch(action.type){
+export default function(state = {}, action) {
+  switch (action.type) {
     case DISABLE_BALANCE_ON_ADD:
-      return{
+      return {
         ...state,
-        disableBalanceOnAdd: ! state.disableBalanceOnAdd
+        disableBalanceOnAdd: action.payload
       };
     case DISABLE_BALANCE_ON_EDIT:
-      return{
+      return {
         ...state,
-        disableBalanceOnEdit: !state.disableBalanceOnEdit
-      } 
+        disableBalanceOnEdit: action.payload
+      };
     case ALLOW_REGISTRATION:
-      return{
+      return {
         ...state,
-        allowRegistration: !state.allowRegistration
+        allowRegistration: action.payload
       };
     default:
-        return {
-            state
-            }
+      return state;
   }
 }
